@@ -9,15 +9,15 @@ describe "Array#partition" do
     let(:ary) { [0, 1, 2, 3, 4, 5] }
 
     xit 'the whole array when the block always evaluates true' do
-      expect(ary.repartition {|i| true }).to eq [[ary], []]
+      expect(ary.repartition {|i| true }).to eq [ary, []]
     end
 
     xit 'an empty array when the block always evaluates to false' do
-      expect(ary.repartition {|i| false }).to eq [[], [ary]]
+      expect(ary.repartition {|i| false }).to eq [[], ary]
     end
 
     xit 'an empty array when the block always evaluates to nil' do
-      expect(ary.repartition {|i| nil }).to eq [[], [ary]]
+      expect(ary.repartition {|i| nil }).to eq [[], ary]
     end
 
     xit 'evaluates simple math operations' do
